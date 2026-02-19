@@ -41,7 +41,8 @@ export const metadata: Metadata = {
     images: ["/weston-headshot.jpg"],
   },
   icons: {
-    icon: "/icon.svg",
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
 };
 
