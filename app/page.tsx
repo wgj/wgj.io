@@ -108,12 +108,14 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="mt-8 grid gap-4">
+          <div className="mt-8 flex flex-col items-center gap-3">
             {links.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="group flex items-center justify-between rounded-2xl border border-white/10 bg-gradient-to-r from-white/5 via-white/10 to-white/5 px-6 py-4 text-left text-base font-medium text-white transition hover:-translate-y-1 hover:border-white/20 hover:bg-white/10"
+                target="_blank"
+                rel="noreferrer"
+                className="group inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-gradient-to-r from-white/5 via-white/10 to-white/5 px-6 py-3 text-center text-sm font-medium text-white transition hover:-translate-y-1 hover:border-white/20 hover:bg-white/10"
               >
                 <span>{link.label}</span>
                 <span className="text-slate-400 transition group-hover:translate-x-1 group-hover:text-white">
