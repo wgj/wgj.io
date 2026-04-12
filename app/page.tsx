@@ -62,81 +62,214 @@ const socials = [
   },
 ];
 
+const practiceAreas = [
+  {
+    title: "Build",
+    description:
+      "New ventures, internal tools, and operating systems that help strong teams move with clarity.",
+  },
+  {
+    title: "Buy",
+    description:
+      "Durable businesses with room for thoughtful transitions and steady operational improvement.",
+  },
+  {
+    title: "Run",
+    description:
+      "Execution with an operator's mindset across technology, process, and the people doing the work.",
+  },
+];
+
+const ventures = links.map((link) => ({
+  ...link,
+  domain: new URL(link.href).hostname.replace(/^www\./, ""),
+}));
+
 export default function Home() {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-slate-950 text-slate-100">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.18),_transparent_45%),radial-gradient(circle_at_20%_60%,_rgba(129,140,248,0.12),_transparent_50%),radial-gradient(circle_at_80%_60%,_rgba(244,114,182,0.1),_transparent_40%)]" />
-      <main className="relative mx-auto flex min-h-screen w-full max-w-3xl flex-col items-center justify-center px-6 py-20">
-        <section className="w-full rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_30px_80px_-40px_rgba(15,23,42,0.9)] backdrop-blur">
-          <div className="flex flex-col items-center text-center">
-            <div className="relative">
-              <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-sky-400/40 via-indigo-400/40 to-pink-400/40 blur-lg" />
+    <div className="min-h-screen text-[color:var(--foreground)]">
+      <main className="mx-auto max-w-6xl px-5 pb-10 pt-5 sm:px-8 sm:pb-16 sm:pt-8 lg:px-10">
+        <header
+          data-reveal="1"
+          className="flex flex-col items-start gap-4 border-b border-[color:var(--border)] pb-4 sm:flex-row sm:items-center sm:justify-between"
+        >
+          <div className="flex items-center gap-3">
+            <Image
+              src="/icon.svg"
+              alt=""
+              width={44}
+              height={44}
+              className="h-11 w-11 rounded-xl"
+            />
+            <div>
+              <p className="text-sm font-medium text-[color:var(--foreground)]">
+                wgj.io
+              </p>
+              <p className="text-sm text-[color:var(--muted)]">
+                Weston Johnson
+              </p>
+            </div>
+          </div>
+          <a
+            href="mailto:weston@wgj.io"
+            className="inline-flex w-full items-center justify-center rounded-xl border border-[color:var(--border)] bg-[color:var(--surface-strong)] px-4 py-2 text-sm font-medium text-[color:var(--foreground)] transition-colors hover:border-slate-900/20 hover:bg-white sm:w-auto"
+          >
+            weston@wgj.io
+          </a>
+        </header>
+
+        <div className="grid gap-10 py-8 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-start lg:gap-16 lg:py-12">
+          <section data-reveal="2" className="lg:sticky lg:top-8">
+            <div className="overflow-hidden rounded-[24px] border border-[color:var(--border)] bg-[color:var(--surface-strong)]">
               <Image
                 src="/weston-headshot.jpg"
                 alt="Weston Johnson"
-                width={160}
-                height={160}
-                className="relative h-32 w-32 rounded-full border border-white/20 object-cover shadow-xl sm:h-36 sm:w-36"
+                width={400}
+                height={400}
+                sizes="(min-width: 1024px) 36vw, (min-width: 640px) 80vw, 100vw"
+                className="h-auto w-full object-cover"
                 priority
               />
             </div>
-            <div className="mt-6 space-y-3">
-              <p className="text-sm uppercase tracking-[0.32em] text-slate-400">
-                wgj.io
-              </p>
-              <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+
+            <div className="mt-6 max-w-xl">
+              <h1 className="text-4xl font-semibold tracking-tight text-[color:var(--foreground)] sm:text-5xl">
                 Weston Johnson
               </h1>
-              <p className="text-base text-slate-300 sm:text-lg">
-                Building, buying, and running great companies.
+              <p className="mt-4 text-xl leading-8 text-[color:var(--foreground)]">
+                I build, buy, and run great companies.
+              </p>
+              <p className="mt-3 max-w-lg text-base leading-7 text-[color:var(--muted)]">
+                Operator, technologist, entrepreneur.
               </p>
             </div>
-          </div>
 
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
-            {socials.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target={social.href.startsWith("mailto") ? undefined : "_blank"}
-                rel={social.href.startsWith("mailto") ? undefined : "noreferrer"}
-                className="group inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 p-3 text-slate-300 transition hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/10 hover:text-white"
-                aria-label={social.label}
-              >
-                {social.icon}
-              </a>
-            ))}
-          </div>
+            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+              {socials.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target={social.href.startsWith("mailto") ? undefined : "_blank"}
+                  rel={social.href.startsWith("mailto") ? undefined : "noreferrer"}
+                  className="group flex items-center justify-between rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface-strong)] px-4 py-4 text-[color:var(--foreground)] transition-colors hover:border-slate-900/20 hover:bg-white"
+                >
+                  <span className="flex items-center gap-3">
+                    <span className="text-[color:var(--muted)] transition-colors group-hover:text-[color:var(--foreground)]">
+                      {social.icon}
+                    </span>
+                    <span className="text-sm font-medium">{social.label}</span>
+                  </span>
+                  <span className="text-sm text-[color:var(--muted)] transition-colors group-hover:text-[color:var(--foreground)]">
+                    ↗
+                  </span>
+                </a>
+              ))}
+            </div>
+          </section>
 
-          <div className="mt-8 flex flex-col items-center gap-3">
-            {links.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noreferrer"
-                className="group flex w-72 items-center justify-center gap-2 rounded-2xl border border-white/10 bg-gradient-to-r from-white/5 via-white/10 to-white/5 px-6 py-3 text-center text-sm font-medium text-white transition hover:-translate-y-1 hover:border-white/20 hover:bg-white/10"
-              >
-                <span>{link.label}</span>
-                <span className="text-slate-400 transition group-hover:translate-x-1 group-hover:text-white">
-                  →
-                </span>
-              </a>
-            ))}
-          </div>
+          <div className="space-y-6">
+            <section
+              data-reveal="3"
+              className="rounded-[24px] border border-[color:var(--border)] bg-[color:var(--surface)] p-6 sm:p-8"
+            >
+              <div className="max-w-2xl">
+                <h2 className="text-2xl font-semibold tracking-tight text-[color:var(--foreground)]">
+                  How I work
+                </h2>
+                <p className="mt-2 text-base leading-7 text-[color:var(--muted)]">
+                  Most of my time falls into three lanes, with technology
+                  threaded through all of them.
+                </p>
+              </div>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-sm text-slate-400">
-            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">
-              Operator
-            </span>
-            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">
-              Technologist
-            </span>
-            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">
-              Entrepreneur
-            </span>
+              <div className="mt-6 divide-y divide-[color:var(--border)] border-y border-[color:var(--border)]">
+                {practiceAreas.map((area, index) => (
+                  <div
+                    key={area.title}
+                    className="grid gap-4 py-5 sm:grid-cols-[80px_minmax(0,1fr)] sm:gap-6"
+                  >
+                    <p className="font-mono text-sm text-[color:var(--muted)]">
+                      0{index + 1}
+                    </p>
+                    <div>
+                      <h3 className="text-xl font-medium text-[color:var(--foreground)]">
+                        {area.title}
+                      </h3>
+                      <p className="mt-2 text-base leading-7 text-[color:var(--muted)]">
+                        {area.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section
+              data-reveal="4"
+              className="rounded-[24px] border border-[color:var(--border)] bg-[color:var(--surface)] p-6 sm:p-8"
+            >
+              <div>
+                <h2 className="text-2xl font-semibold tracking-tight text-[color:var(--foreground)]">
+                  Current work
+                </h2>
+                <p className="mt-2 text-base leading-7 text-[color:var(--muted)]">
+                  A couple of places to start.
+                </p>
+              </div>
+
+              <div className="mt-6 grid gap-4">
+                {ventures.map((venture) => (
+                  <a
+                    key={venture.label}
+                    href={venture.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface-strong)] px-5 py-5 transition-colors hover:border-slate-900/20 hover:bg-white"
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <h3 className="text-lg font-medium text-[color:var(--foreground)]">
+                          {venture.label}
+                        </h3>
+                        <p className="mt-2 font-mono text-xs tracking-[0.08em] text-[color:var(--muted)]">
+                          {venture.domain}
+                        </p>
+                      </div>
+                      <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[color:var(--border)] text-base text-[color:var(--foreground)] transition-colors group-hover:border-slate-900/20">
+                        ↗
+                      </span>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </section>
+
+            <section
+              data-reveal="5"
+              className="rounded-[24px] border border-[color:var(--border)] bg-[color:var(--surface)] p-6 sm:p-8"
+            >
+              <h2 className="text-2xl font-semibold tracking-tight text-[color:var(--foreground)]">
+                Connect
+              </h2>
+              <p className="mt-2 max-w-2xl text-base leading-7 text-[color:var(--muted)]">
+                Email is the simplest way to reach me. If another channel is
+                easier, the rest are above.
+              </p>
+
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <a
+                  href="mailto:weston@wgj.io"
+                  className="inline-flex items-center justify-center rounded-xl bg-slate-950 px-5 py-3 text-sm font-medium text-slate-50 transition-colors hover:bg-slate-800 sm:w-auto"
+                >
+                  Email Weston
+                </a>
+                <p className="text-sm leading-6 text-[color:var(--muted)]">
+                  weston@wgj.io
+                </p>
+              </div>
+            </section>
           </div>
-        </section>
+        </div>
       </main>
     </div>
   );
