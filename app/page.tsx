@@ -85,7 +85,7 @@ export default function Home() {
               href={link.href}
               target={link.href.startsWith("mailto") ? undefined : "_blank"}
               rel={link.href.startsWith("mailto") ? undefined : "noreferrer"}
-              className="flex min-h-[60px] items-center justify-center rounded-[10px] border border-[var(--button-border)] bg-[var(--button)] px-5 text-center text-[15px] font-semibold text-[var(--button-text)] shadow-[0_2px_8px_rgba(36,31,26,0.12)] transition-colors duration-150 hover:bg-[var(--button-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--button)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
+              className="flex min-h-[60px] items-center justify-center rounded-[10px] border border-[var(--button-border)] bg-[var(--button)] px-5 text-center text-[15px] font-semibold text-[#fffaf4] shadow-[0_2px_8px_rgba(36,31,26,0.12)] transition-colors duration-150 hover:bg-[var(--button-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--button)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
             >
               {link.label}
             </a>
