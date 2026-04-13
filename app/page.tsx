@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const links = [
+const featuredLinks = [
   {
     label: "Ridgeline Acquisition Partners",
     href: "https://selltoridgeline.com",
@@ -8,6 +8,10 @@ const links = [
   {
     label: "Sherwood Consulting",
     href: "https://www.sherwoodhelps.com/",
+  },
+  {
+    label: "Email Weston",
+    href: "mailto:weston@wgj.io",
   },
 ];
 
@@ -48,95 +52,65 @@ const socials = [
       </svg>
     ),
   },
-  {
-    label: "Email",
-    href: "mailto:weston@wgj.io",
-    icon: (
-      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5">
-        <path
-          fill="currentColor"
-          d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm0 2v.2l8 5.33L20 7.2V7H4Zm16 10V9.3l-7.4 4.94a1 1 0 0 1-1.2 0L4 9.3V17h16Z"
-        />
-      </svg>
-    ),
-  },
 ];
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-slate-950 text-slate-100">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.18),_transparent_45%),radial-gradient(circle_at_20%_60%,_rgba(129,140,248,0.12),_transparent_50%),radial-gradient(circle_at_80%_60%,_rgba(244,114,182,0.1),_transparent_40%)]" />
-      <main className="relative mx-auto flex min-h-screen w-full max-w-3xl flex-col items-center justify-center px-6 py-20">
-        <section className="w-full rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_30px_80px_-40px_rgba(15,23,42,0.9)] backdrop-blur">
-          <div className="flex flex-col items-center text-center">
-            <div className="relative">
-              <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-sky-400/40 via-indigo-400/40 to-pink-400/40 blur-lg" />
-              <Image
-                src="/weston-headshot.jpg"
-                alt="Weston Johnson"
-                width={160}
-                height={160}
-                className="relative h-32 w-32 rounded-full border border-white/20 object-cover shadow-xl sm:h-36 sm:w-36"
-                priority
-              />
-            </div>
-            <div className="mt-6 space-y-3">
-              <p className="text-sm uppercase tracking-[0.32em] text-slate-400">
-                wgj.io
-              </p>
-              <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                Weston Johnson
-              </h1>
-              <p className="text-base text-slate-300 sm:text-lg">
-                Building, buying, and running great companies.
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
-            {socials.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target={social.href.startsWith("mailto") ? undefined : "_blank"}
-                rel={social.href.startsWith("mailto") ? undefined : "noreferrer"}
-                className="group inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 p-3 text-slate-300 transition hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/10 hover:text-white"
-                aria-label={social.label}
-              >
-                {social.icon}
-              </a>
-            ))}
-          </div>
-
-          <div className="mt-8 flex flex-col items-center gap-3">
-            {links.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noreferrer"
-                className="group flex w-72 items-center justify-center gap-2 rounded-2xl border border-white/10 bg-gradient-to-r from-white/5 via-white/10 to-white/5 px-6 py-3 text-center text-sm font-medium text-white transition hover:-translate-y-1 hover:border-white/20 hover:bg-white/10"
-              >
-                <span>{link.label}</span>
-                <span className="text-slate-400 transition group-hover:translate-x-1 group-hover:text-white">
-                  →
-                </span>
-              </a>
-            ))}
-          </div>
-
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-sm text-slate-400">
-            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">
-              Operator
-            </span>
-            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">
-              Technologist
-            </span>
-            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">
-              Entrepreneur
-            </span>
+    <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
+      <main className="mx-auto flex min-h-screen w-full max-w-md flex-col justify-center px-6 py-12">
+        <section className="flex flex-col items-center text-center">
+          <Image
+            src="/weston-headshot.jpg"
+            alt="Weston Johnson"
+            width={112}
+            height={112}
+            className="h-28 w-28 rounded-full border border-[var(--avatar-ring)] object-cover"
+            priority
+          />
+          <div className="mt-5 space-y-2">
+            <h1 className="text-[2rem] font-semibold tracking-tight">
+              Weston Johnson
+            </h1>
+            <p className="text-sm font-medium text-[var(--muted)]">@wgj_io</p>
+            <p className="mx-auto max-w-sm text-[15px] leading-6 text-[var(--muted)]">
+              Building, buying, and running great companies.
+            </p>
           </div>
         </section>
+
+        <section className="mt-8 flex flex-col gap-3">
+          {featuredLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target={link.href.startsWith("mailto") ? undefined : "_blank"}
+              rel={link.href.startsWith("mailto") ? undefined : "noreferrer"}
+              className="flex min-h-[60px] items-center justify-center rounded-[10px] border border-[var(--button-border)] bg-[var(--button)] px-5 text-center text-[15px] font-semibold text-[var(--button-text)] shadow-[0_2px_8px_rgba(36,31,26,0.12)] transition-colors duration-150 hover:bg-[var(--button-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--button)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
+            >
+              {link.label}
+            </a>
+          ))}
+        </section>
+
+        <nav
+          className="mt-8 flex items-center justify-center gap-3"
+          aria-label="Social links"
+        >
+          {socials.map((social) => (
+            <a
+              key={social.label}
+              href={social.href}
+              target={social.href.startsWith("mailto") ? undefined : "_blank"}
+              rel={social.href.startsWith("mailto") ? undefined : "noreferrer"}
+              className="inline-flex h-11 w-11 items-center justify-center rounded-[10px] border border-[var(--outline)] bg-[var(--surface)] text-[var(--foreground)] transition-colors duration-150 hover:border-[var(--foreground)] hover:bg-[var(--surface-muted)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--foreground)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
+              aria-label={social.label}
+            >
+              {social.icon}
+            </a>
+          ))}
+        </nav>
+
+        <p className="mt-10 text-center text-sm text-[var(--muted)]">wgj.io</p>
       </main>
     </div>
   );
