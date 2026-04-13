@@ -36,10 +36,6 @@ body {
   font-family: var(--font-geist-sans), sans-serif;
 }
 
-a {
-  color: inherit;
-}
-
 ::selection {
   background: #d9a86a;
   color: #17130f;
