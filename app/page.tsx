@@ -53,13 +53,23 @@ const socials = [
     href: "mailto:weston@wgj.io",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5">
-        <path
-          d="M16.5 8.25v6a4.5 4.5 0 1 1-1.46-3.32M16.5 14.25V12a4.5 4.5 0 1 0-4.5 4.5h1.5"
+        <circle
+          cx="12"
+          cy="12"
+          r="4"
           fill="none"
           stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
-          strokeWidth="1.8"
+          strokeWidth="1.75"
+        />
+        <path
+          d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.75"
         />
       </svg>
     ),
@@ -83,7 +93,6 @@ export default function Home() {
             <h1 className="text-[2rem] font-semibold tracking-tight">
               Weston Johnson
             </h1>
-            <p className="text-sm font-medium text-[var(--muted)]">@wgj_io</p>
             <p className="mx-auto max-w-sm text-[15px] leading-6 text-[var(--muted)]">
               Building, buying, and running great companies.
             </p>
