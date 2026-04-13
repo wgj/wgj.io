@@ -9,10 +9,6 @@ const featuredLinks = [
     label: "Sherwood Consulting",
     href: "https://www.sherwoodhelps.com/",
   },
-  {
-    label: "Email Weston",
-    href: "mailto:weston@wgj.io",
-  },
 ];
 
 const socials = [
@@ -48,6 +44,22 @@ const socials = [
         <path
           fill="currentColor"
           d="M12 .5a11.5 11.5 0 0 0-3.64 22.42c.58.1.8-.26.8-.58v-2.08c-3.26.72-3.95-1.57-3.95-1.57-.54-1.36-1.32-1.72-1.32-1.72-1.08-.74.08-.72.08-.72 1.2.08 1.83 1.23 1.83 1.23 1.06 1.83 2.78 1.3 3.46.99.1-.78.42-1.3.76-1.6-2.6-.3-5.33-1.3-5.33-5.78 0-1.28.46-2.33 1.22-3.15-.12-.3-.53-1.52.12-3.17 0 0 1-.32 3.3 1.2a11.4 11.4 0 0 1 6 0c2.3-1.52 3.3-1.2 3.3-1.2.65 1.65.24 2.87.12 3.17.76.82 1.22 1.87 1.22 3.15 0 4.5-2.74 5.48-5.35 5.78.43.38.82 1.1.82 2.22v3.3c0 .32.21.7.8.58A11.5 11.5 0 0 0 12 .5Z"
+        />
+      </svg>
+    ),
+  },
+  {
+    label: "Email",
+    href: "mailto:weston@wgj.io",
+    icon: (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5">
+        <path
+          d="M16.5 8.25v6a4.5 4.5 0 1 1-1.46-3.32M16.5 14.25V12a4.5 4.5 0 1 0-4.5 4.5h1.5"
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.8"
         />
       </svg>
     ),
